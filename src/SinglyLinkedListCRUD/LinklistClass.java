@@ -53,15 +53,12 @@ public class LinklistClass {
 			else
 				return "Data not found";
 	}
-		if(tempHead.getNextNode()!=null&&tempHead.getNextNode().getNextNode()!=null)
-			tempHead.setNextNode(tempHead.getNextNode().getNextNode());
+		if(tempHead.getNextNode()!=null&&tempHead.getNextNode().getDataNode().compareTo(data)==0) {
+			tempHead.setNextNode(tempHead.getNextNode().getNextNode());counter--;
+			return "Data deleted from "+--count;}
 		else
-		{
-			if(tempHead.getDataNode().compareTo(data)!=0)
-				return "Data Not found";
-			tempHead.setNextNode(null);
-		}counter--;
-		return "Data deleted from "+count--;
+			return "Data Not found";
+		
 	}
 	
 	public String MoveAndInsertInMid(String before,String data) {
