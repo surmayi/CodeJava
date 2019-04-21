@@ -39,24 +39,20 @@ public class LinkedListClass {
 	}
 	
 	public String removeDuplicates() {
-		NodeClass tempHead = head, prev=head;
-		StringBuilder str = new StringBuilder();
-		HashMap<String,String> map = new HashMap<String,String>();
-		while(tempHead!=null ) {
-			if(map.containsKey(tempHead.getData())){
-				str.append("Removed Duplicate Node "+ tempHead.getData() + "\n");
-				prev.setNextNode(tempHead.getNextNode());
-				tempHead=tempHead.getNextNode();
-				
-			}
+		HashMap<String,Integer> map = new HashMap<String,Integer>();
+		NodeClass head1 = head.getNextNode(), prev=head;
+		if(head!=null)
+		map.put(head.getData(), 1);
+		while(head1!=null ) {
+			if(map.containsKey(head1.getData())) 
+				prev.setNextNode(head1.getNextNode());		
 			else {
-				map.put(tempHead.getData(), "1");
-				prev=tempHead;
-				tempHead=tempHead.getNextNode();
+				map.put(head1.getData(),1);
+				prev= head1;}
+			head1=head1.getNextNode();
 				
 			}
-		}
-		return str.toString();
+		return toString();
 	}
 
 }

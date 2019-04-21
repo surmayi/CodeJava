@@ -54,15 +54,11 @@ public class LinkedListClass {
 	}
 	//2-1-6 = 216
 	public int ConvertListToNumber(LinkedListClass list) {
-		int number=0,pro, digits=list.getCounter();
-		NodeClass head = list.getHead();
-		while(digits>0) {
-			int d =head.getData();
-			pro = (int) Math.pow(10, digits-1);
-			number=number + d*pro;
-			digits--;
-			head=head.getNext();
+		int num =0 ;
+		while(list.getHead()!=null) {
+			num=num*10+list.getHead().getData();
+			list.setHead(list.getHead().getNext());
 		}
-		return number;
+		return num;
 	}
 }

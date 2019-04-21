@@ -13,9 +13,9 @@ public class App {
 		
 		LinkedListClass list1 = new LinkedListClass();
 		
+		list1.AddtoHead(1);
 		list1.AddtoHead(0);
-		list1.AddtoHead(0);
-		list1.AddtoHead(0);
+		list1.AddtoHead(1);
 		list1.AddtoHead(9);
 		int l2 = list1.ConvertListToNumber(list1);
 

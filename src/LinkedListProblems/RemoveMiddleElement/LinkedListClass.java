@@ -36,14 +36,14 @@ public class LinkedListClass {
 	}
 	
 	public String RemoveMiddleElement() {
-		NodeClass slow=head, fast=head, prev=head;
-		while(fast!=null &&fast.getNext()!=null) {
-			prev= slow;
-			slow=slow.getNext();
-			fast= fast.getNext().getNext();
+		NodeClass head1=head,head2=head, prev=head;
+		while(head2!=null && head2.getNext()!=null) {
+			prev=head1;
+			head1=head1.getNext();
+			head2=head2.getNext().getNext();
 		}
-		prev.setNext(slow.getNext());
-		return slow.getData();
+		prev.setNext(prev.getNext().getNext());
+			return toString();
 	}
 
 }

@@ -36,24 +36,25 @@ public class LinkedListHelper {
 	}
 	
 	public String FindMidElement() {
-		NodeClass tempHead1 = head, tempHead2 = head;
-		while( tempHead2!=null&&tempHead2.getNexNode()!=null ) {
-			tempHead1= tempHead1.getNexNode();
-			tempHead2 = tempHead2.getNexNode().getNexNode();
+		NodeClass head1 = head, head2 =head;
+		while(head2.getNexNode()!=null) {
+			head1=head1.getNexNode();
+			head2=head2.getNexNode().getNexNode();
 		}
-		return tempHead1.getData();
+		return head1.data;
 	}
 	
 	public void ReverseList() {
-		NodeClass  prev=null,next=head.getNexNode(),current=head;
-		while(current!=null) {
-			current.setNexNode(prev);
-			prev=current;
-			current=next;
+		NodeClass prev =null, next = head.getNexNode(),curr= head;
+		while(curr!=null)
+		{
+			curr.setNexNode(prev);
+			prev=curr;
+			curr=next;
 			if(next!=null)
-			next=next.getNexNode();	
+				next=next.getNexNode();
 		}
-		head=prev;
+		head = prev;
 	}
 
 }

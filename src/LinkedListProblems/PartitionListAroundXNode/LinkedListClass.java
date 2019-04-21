@@ -38,43 +38,23 @@ public class LinkedListClass {
 	}
 
 	public String PartitionAroundXElement(int node) {
-		NodeClass prev=head,current=head, tempHead=head;
-		while(tempHead.getData()!=node) {
-			tempHead=tempHead.getNext();
-		}
-		while(current!=null && current!=tempHead) {
-			if(tempHead.getData()>current.getData()) {
-				current=current.getNext();
-				prev=current;
+		NodeClass head1= head, head2=head;
+		StringBuilder st =new StringBuilder();
+		while(head2!=null) {
+			if(head2.getData()==node) {
+				
+				while(head2!=null) {
+					st.append(head2.getData()+"->");
+					head2=head2.getNext();
+					}
+				System.out.println(st.toString());
+				head1.setNext(null);
+				break;
+				}
+			else {
+				head1=head1.getNext();
+				head2=head2.getNext();
 			}
-			else if(tempHead==current){
-				current=current.getNext();
-				prev=current;
-			}
-			else{
-				prev=prev.getNext();
-				current.setNext(tempHead.getNext());
-				tempHead.setNext(current);
-				current=prev;
-				head=prev;
-			}
-			System.out.println(toString());
-		}
-		prev=tempHead; current=current.getNext();
-		while(current!=null) {	
-			if(tempHead.getData()>current.getData()) {
-				prev.setNext(current.getNext());;
-				current.setNext(head);
-				head=current;
-				current=prev.getNext()
-						;
-			}
-			else{
-				prev=prev.getNext();
-				current=current.getNext();
-			}
-			System.out.println(toString());
-			
 		}
 		return toString();
 	}
